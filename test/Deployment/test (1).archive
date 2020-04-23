@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002">
+    <enterpriseArchive>
+        <sharedArchive name="Shared Archive">
+            <resourceType>shared.archive.resource</resourceType>
+            <authorProperty>hi2su</authorProperty>
+        </sharedArchive>
+        <processArchive name="Process Archive">
+            <resourceType>process.archive.resource</resourceType>
+            <authorProperty>hi2su</authorProperty>
+            <processProperty>/Processes/JMS_Receiver.process</processProperty>
+        </processArchive>
+        <versionProperty>2</versionProperty>
+        <authorProperty>hi2su</authorProperty>
+        <addServiceSettableGvars>true</addServiceSettableGvars>
+        <name>test (1)</name>
+        <designer/>
+        <fileLocationProperty>C:\Users\hi2su\Desktop\EARLB.ear</fileLocationProperty>
+    </enterpriseArchive>
+</Repository:repository>

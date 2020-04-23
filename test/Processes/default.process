@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>Processes/default.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>153</pd:startX>
+    <pd:startY>73</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1583668315193</pd:targetNamespace>
+    <pd:activity name="Map Data">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>252</pd:x>
+        <pd:y>83</pd:y>
+        <config>
+            <element>
+                <xsd:element name="root">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="input" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </element>
+        </config>
+        <pd:inputBindings>
+            <root>
+                <input>
+                    <xsl:value-of select="&quot;#!oe2FVz/rcjokKW2hIDGE7nSX1U+VKRjA&quot;"/>
+                </input>
+            </root>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Java Code">
+        <pd:type>com.tibco.plugin.java.JavaActivity</pd:type>
+        <pd:resourceType>ae.javapalette.javaActivity</pd:resourceType>
+        <pd:x>362</pd:x>
+        <pd:y>79</pd:y>
+        <config>
+            <fullsource>package Processes.default;
+import java.util.*;
+import java.io.*;
+public class defaultJavaCode{
+/****** START SET/GET METHOD, DO NOT MODIFY *****/
+	protected String Input = "";
+	protected String Output = "";
+	public String getInput() {
+		return Input;
+	}
+	public void setInput(String val) {
+		Input = val;
+	}
+	public String getOutput() {
+		return Output;
+	}
+	public void setOutput(String val) {
+		Output = val;
+	}
+/****** END SET/GET METHOD, DO NOT MODIFY *****/
+	public defaultJavaCode() {
+	}
+	public void invoke() throws Exception {
+/* Available Variables: DO NOT MODIFY
+	In  : String Input
+	Out : String Output
+* Available Variables: DO NOT MODIFY *****/
+
+String var = new String(ObfuscationEngine.decrypt(Input));
+ Output=var;
+
+}
+}
+</fullsource>
+            <fileName>defaultJavaCode</fileName>
+            <packageName>Processes.default</packageName>
+            <inputData>
+                <row>
+                    <fieldName>Input</fieldName>
+                    <fieldType>string</fieldType>
+                    <fieldRequired>optional</fieldRequired>
+                </row>
+            </inputData>
+            <outputData>
+                <row>
+                    <fieldName>Output</fieldName>
+                    <fieldType>string</fieldType>
+                    <fieldRequired>optional</fieldRequired>
+                </row>
+            </outputData>
+        </config>
+        <pd:inputBindings>
+            <javaCodeActivityInput>
+                <Input>
+                    <xsl:value-of select="$Map-Data/root/input"/>
+                </Input>
+            </javaCodeActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Map Data</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Map Data</pd:from>
+        <pd:to>Java Code</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Java Code</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

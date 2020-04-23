@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource>
+    <name>JMS Application Properties</name>
+    <resourceType>ae.shared.JMSAppPropResource</resourceType>
+    <config>
+        <Properties>
+            <row>
+                <PropertyName>ststus</PropertyName>
+                <Type>string</Type>
+                <Cardinality>required</Cardinality>
+            </row>
+            <row>
+                <PropertyName>check</PropertyName>
+                <Type>string</Type>
+                <Cardinality>required</Cardinality>
+            </row>
+        </Properties>
+    </config>
+</BWSharedResource>
